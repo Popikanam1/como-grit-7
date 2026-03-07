@@ -146,7 +146,7 @@ export default function Gallery() {
 
             <button
               onClick={handlePrev}
-              className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 bg-black/30 rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
+              className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
               style={{ animationDelay: '0.2s' }}
               aria-label="Previous image"
             >
@@ -155,16 +155,16 @@ export default function Gallery() {
 
             <button
               onClick={handleNext}
-              className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 bg-black/30 rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
+              className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
               style={{ animationDelay: '0.25s' }}
               aria-label="Next image"
             >
               <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 group-hover:drop-shadow-lg transition-all" />
             </button>
 
-            <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow-2xl z-20 border border-white/20 hover:border-white/40 transition-all animate-counterSlideUp">
-              <p className="text-white text-xs sm:text-sm font-medium">
-                {currentIndex + 1} <span className="text-white/60">of</span> {galleryImages.length}
+            <div className="absolute bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 bg-white/15 backdrop-blur-md px-3 sm:px-5 py-1.5 sm:py-2 rounded-full shadow-2xl z-20 border border-white/25 hover:border-white/40 transition-all animate-counterSlideUp">
+              <p className="text-white text-sm sm:text-base font-semibold">
+                {currentIndex + 1} <span className="text-white/70 font-normal">of</span> {galleryImages.length}
               </p>
             </div>
 
