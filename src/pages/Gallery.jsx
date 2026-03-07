@@ -122,53 +122,53 @@ export default function Gallery() {
 
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm animate-overlayFadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm animate-overlayFadeIn"
           onClick={handleClose}
         >
-          <div className="relative w-full h-full flex flex-col items-center justify-center p-4 sm:p-6" onClick={(e) => e.stopPropagation()}>
+          <div className="relative w-full h-full flex flex-col items-center justify-center p-2 sm:p-6" onClick={(e) => e.stopPropagation()}>
 
-            <div className="relative w-full h-full max-w-6xl flex items-center justify-center">
+            <div className="relative w-full h-full max-w-6xl flex items-center justify-center px-12 sm:px-16">
               <img
                 src={selectedImage.url.replace('w=800', 'w=1600')}
                 alt={selectedImage.title}
-                className="max-w-full max-h-[80vh] object-contain animate-imageFadeZoom rounded-xl shadow-2xl"
+                className="max-w-full max-h-[70vh] sm:max-h-[80vh] object-contain animate-imageFadeZoom rounded-lg sm:rounded-xl shadow-2xl"
               />
             </div>
 
             <button
               onClick={handleClose}
-              className="absolute top-6 right-6 text-white hover:text-white/80 p-3 transition-all duration-300 hover:scale-110 active:scale-95 z-20 animate-buttonSlideIn"
+              className="absolute top-3 right-3 sm:top-6 sm:right-6 text-white hover:text-white/80 p-2 sm:p-3 bg-black/30 rounded-full transition-all duration-300 hover:scale-110 active:scale-95 z-20 animate-buttonSlideIn"
               style={{ animationDelay: '0.3s' }}
               aria-label="Close"
             >
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
 
             <button
               onClick={handlePrev}
-              className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
+              className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 bg-black/30 rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
               style={{ animationDelay: '0.2s' }}
               aria-label="Previous image"
             >
-              <ChevronLeft className="w-8 h-8 sm:w-10 sm:h-10 group-hover:drop-shadow-lg transition-all" />
+              <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8 group-hover:drop-shadow-lg transition-all" />
             </button>
 
             <button
               onClick={handleNext}
-              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
+              className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 text-white hover:text-white/80 bg-black/30 rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-125 active:scale-95 z-20 animate-arrowSlideIn group"
               style={{ animationDelay: '0.25s' }}
               aria-label="Next image"
             >
-              <ChevronRight className="w-8 h-8 sm:w-10 sm:h-10 group-hover:drop-shadow-lg transition-all" />
+              <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8 group-hover:drop-shadow-lg transition-all" />
             </button>
 
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-2xl z-20 border border-white/20 hover:border-white/40 transition-all animate-counterSlideUp">
-              <p className="text-white text-sm font-medium">
+            <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow-2xl z-20 border border-white/20 hover:border-white/40 transition-all animate-counterSlideUp">
+              <p className="text-white text-xs sm:text-sm font-medium">
                 {currentIndex + 1} <span className="text-white/60">of</span> {galleryImages.length}
               </p>
             </div>
 
-          
+
           </div>
         </div>
       )}

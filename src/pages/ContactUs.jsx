@@ -1,10 +1,9 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Building2, User, CircleCheck as CheckCircle2 } from 'lucide-react';
+import { Phone, Mail, MapPin, Building2, Instagram, Facebook, MessageCircle, CircleCheck as CheckCircle2 } from 'lucide-react';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
     fullName: '',
-    company: '',
     email: '',
     subject: '',
     message: '',
@@ -23,7 +22,6 @@ export default function ContactUs() {
       setSubmitted(false);
       setFormData({
         fullName: '',
-        company: '',
         email: '',
         subject: '',
         message: '',
@@ -45,10 +43,11 @@ export default function ContactUs() {
     address: "Rooseveltova 12, 21000 Split, Croatia",
     phone: "+385 1 234 5678",
     email: "service@comogrit.com",
-    keyStaff: [
-      { name: "Ivan Horvat", role: "CEO", phone: "+385 91 123 4567", email: "ivan.horvat@comogrit.com" },
-      { name: "Marija Kovač", role: "Sales Manager", phone: "+385 91 234 5678", email: "marija.kovac@comogrit.com" },
-      { name: "Petar Novak", role: "Technical Director", phone: "+385 91 345 6789", email: "petar.novak@comogrit.com" }
+    socialMedia: [
+      { name: "Instagram", icon: Instagram, url: "https://instagram.com/comogrit", handle: "@comogrit" },
+      { name: "Facebook", icon: Facebook, url: "https://facebook.com/comogrit", handle: "COMO GRIT d.o.o" },
+      { name: "WhatsApp", icon: MessageCircle, url: "https://wa.me/385912345678", handle: "+385 91 234 5678" },
+      { name: "Viber", icon: Phone, url: "viber://chat?number=385912345678", handle: "+385 91 234 5678" }
     ]
   };
 
@@ -100,21 +99,6 @@ export default function ContactUs() {
                   </div>
 
                   <div className="animate-fadeInUp" style={{ animationDelay: '0.4s' }}>
-                    <label htmlFor="company" className="block text-sm font-semibold text-slate-900 mb-2">
-                      Company
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border-2 border-slate-300 rounded-lg bg-white text-slate-900 placeholder-slate-500 focus:border-blue-600 focus:ring-2 focus:ring-blue-600/30 focus:outline-none transition-all duration-300"
-                      placeholder="Your company name"
-                    />
-                  </div>
-
-                  <div className="animate-fadeInUp" style={{ animationDelay: '0.45s' }}>
                     <label htmlFor="email" className="block text-sm font-semibold text-slate-900 mb-2">
                       Email Address *
                     </label>
@@ -130,7 +114,7 @@ export default function ContactUs() {
                     />
                   </div>
 
-                  <div className="animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
+                  <div className="animate-fadeInUp" style={{ animationDelay: '0.45s' }}>
                     <label htmlFor="subject" className="block text-sm font-semibold text-slate-900 mb-2">
                       Subject *
                     </label>
@@ -146,7 +130,7 @@ export default function ContactUs() {
                     />
                   </div>
 
-                  <div className="animate-fadeInUp" style={{ animationDelay: '0.55s' }}>
+                  <div className="animate-fadeInUp" style={{ animationDelay: '0.5s' }}>
                     <label htmlFor="message" className="block text-sm font-semibold text-slate-900 mb-2">
                       Message *
                     </label>
@@ -162,7 +146,7 @@ export default function ContactUs() {
                     />
                   </div>
 
-                  <div className="flex items-start gap-3 pt-2 animate-fadeInUp" style={{ animationDelay: '0.6s' }}>
+                  <div className="flex items-start gap-3 pt-2 animate-fadeInUp" style={{ animationDelay: '0.55s' }}>
                     <input
                       type="checkbox"
                       id="gdprConsent"
@@ -181,7 +165,7 @@ export default function ContactUs() {
                   <button
                     type="submit"
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 mt-6 animate-fadeInUp animate-pulse-soft"
-                    style={{ animationDelay: '0.65s' }}
+                    style={{ animationDelay: '0.6s' }}
                   >
                     Send Message
                   </button>
@@ -202,9 +186,8 @@ export default function ContactUs() {
                       <Building2 className="w-6 h-6 text-white" />
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-slate-900 mb-1 text-sm sm:text-base">{contactInfo.companyName}</h3>
-                    <p className="text-slate-600 text-xs sm:text-sm">{contactInfo.registrationNumber}</p>
+                  <div className="flex items-center">
+                    <h3 className="font-bold text-slate-900 text-sm sm:text-base">{contactInfo.companyName}</h3>
                   </div>
                 </div>
 
@@ -249,25 +232,31 @@ export default function ContactUs() {
                 </div>
 
                 <div className="border-t border-slate-200 pt-6 mt-6 animate-fadeInUp" style={{ animationDelay: '0.75s' }}>
-                  <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2 text-sm sm:text-base">
-                    <User className="w-5 h-5 text-blue-600" />
-                    Key Contacts
+                  <h3 className="font-bold text-slate-900 mb-4 text-sm sm:text-base">
+                    Follow Us
                   </h3>
-                  <div className="space-y-3">
-                    {contactInfo.keyStaff.map((staff, idx) => (
-                      <div key={idx} className="bg-white rounded-lg p-3 sm:p-4 border-2 border-slate-200 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:scale-105 animate-fadeInUp" style={{ animationDelay: `${0.8 + idx * 0.1}s` }}>
-                        <h4 className="font-semibold text-slate-900 text-xs sm:text-sm mb-1">{staff.name}</h4>
-                        <p className="text-blue-600 text-xs font-bold mb-2">{staff.role}</p>
-                        <div className="space-y-1">
-                          <a href={`tel:${staff.phone}`} className="block text-slate-600 hover:text-blue-600 text-xs transition-colors">
-                            {staff.phone}
-                          </a>
-                          <a href={`mailto:${staff.email}`} className="block text-slate-600 hover:text-blue-600 text-xs transition-colors truncate">
-                            {staff.email}
-                          </a>
-                        </div>
-                      </div>
-                    ))}
+                  <div className="grid grid-cols-2 gap-3">
+                    {contactInfo.socialMedia.map((social, idx) => {
+                      const Icon = social.icon;
+                      return (
+                        <a
+                          key={idx}
+                          href={social.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="bg-white rounded-lg p-3 sm:p-4 border-2 border-slate-200 hover:border-blue-600 transition-all duration-300 hover:shadow-lg hover:scale-105 animate-fadeInUp flex flex-col items-center gap-2 text-center"
+                          style={{ animationDelay: `${0.8 + idx * 0.1}s` }}
+                        >
+                          <div className="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center">
+                            <Icon className="w-5 h-5 text-blue-600" />
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-slate-900 text-xs sm:text-sm mb-1">{social.name}</h4>
+                            <p className="text-slate-600 text-xs truncate max-w-full">{social.handle}</p>
+                          </div>
+                        </a>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
